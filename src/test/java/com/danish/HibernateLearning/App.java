@@ -1,5 +1,9 @@
 package com.danish.HibernateLearning;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -9,7 +13,16 @@ import junit.framework.TestSuite;
  */
 public class App{
 	public static void main(String[] args) {
-		System.out.println("hello world");
+		Alien dan=new Alien();
+		dan.setAid(101);
+		dan.setAname("Danish");
+		dan.setColor("Green");
+		
+		
+		Configuration con=new Configuration();
+		SessionFactory sf=con.buildSessionFactory();
+		Session session=sf.openSession();
+		session.save(dan);
 	}
 }
 	
