@@ -5,12 +5,14 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Transient;
 
 @Entity
 @Table(name="alien_table")
 public class Alien {
 	@Id
     private int aid;
+	@Transient
     private String aname;
     @Column(name="alien_color")
     private String color;

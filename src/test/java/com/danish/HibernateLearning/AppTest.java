@@ -17,7 +17,7 @@ public class AppTest{
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		Alien dan=new Alien();
-		dan.setAid(102);
+		dan.setAid(101);
 		dan.setAname("xyz");
 		dan.setColor("blue");
 		
