@@ -17,9 +17,6 @@ public class AppTest{
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		Alien dan=new Alien();
-		dan.setAid(101);
-		dan.setAname("xyz");
-		dan.setColor("blue");
 		
 		Configuration con=new Configuration().configure().addAnnotatedClass(Alien.class);
 		
@@ -29,8 +26,10 @@ public class AppTest{
 		Session session=sf.openSession();
 		
 		Transaction tx=session.beginTransaction();
-		session.save(dan);
+		
+		dan=(Alien)session.get(Alien.class,102);
 		tx.commit();
+		System.out.println(dan);
 	}
 }
 	
