@@ -16,7 +16,14 @@ import junit.framework.TestSuite;
 public class AppTest{
 	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
+		AlienName an=new AlienName();
+		an.setFname("Danish");
+		an.setLname("Maniyar");
+		an.setMname("Shadulla");
 		Alien dan=new Alien();
+		dan.setAid(101);
+		dan.setColor("Green");
+		dan.setAname(an);
 		
 		Configuration con=new Configuration().configure().addAnnotatedClass(Alien.class);
 		
@@ -27,7 +34,8 @@ public class AppTest{
 		
 		Transaction tx=session.beginTransaction();
 		
-		dan=(Alien)session.get(Alien.class,102);
+		//dan=(Alien)session.get(Alien.class,102);
+		session.save(dan);
 		tx.commit();
 		System.out.println(dan);
 	}
